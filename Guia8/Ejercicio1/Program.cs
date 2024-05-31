@@ -37,8 +37,9 @@ namespace Ejercicio1
             {
                 if (notas[n] > promedio)
                 {
-                    nombresMP[n] = nombresMP[n];
-                    notasMP[n] = notasMP[n];
+                    numerosMP[n] = numeros[n];
+                    nombresMP[n] = nombres[n];
+                    notasMP[n] = notas[n];
                     contadorMP++;
                 }
             }
@@ -119,6 +120,7 @@ namespace Ejercicio1
         static void MostrarAlumnosSuperaronPromedio()
         {
             Console.Clear();
+            Console.WriteLine("\t\tAlumnos que superaron el promedio");
 
             CalcularAlumnosNotasMayorPromedio();
             OrdenarAlumnosNotasMayorPromedio();
@@ -134,20 +136,22 @@ namespace Ejercicio1
         static void MostrarCuadroBusqueda()
         {
             Console.Clear();
+            Console.WriteLine("\t\tCuadro promedio");
 
+            Console.WriteLine("Ingrese el numero de libreta a buscar:");
             int numero = Convert.ToInt32(Console.ReadLine());
 
             int idx = BuscarAlumnoPorNumeroLibreta(numero);
 
+            Console.WriteLine("Resultado:");
             if (idx > -1)
-                Console.WriteLine("{0}{1}{2}", numeros[idx], nombres[idx], notas[idx]);
+                Console.WriteLine("{0} {1} {2}", numeros[idx], nombres[idx], notas[idx]);
             else
                 Console.WriteLine("no se encontró");
 
             Console.WriteLine("presione una tecla");
             Console.ReadKey();
         }
-
 
         static void Menu()
         {
@@ -171,20 +175,21 @@ namespace Ejercicio1
 
             Menu();
             op = Convert.ToInt32(Console.ReadLine());
-            while (op!=0)
+            while (op != 0)
             {
                 switch (op)
                 {
                     case 1:
-                        { 
+                        {
                             IngresarDatos();
-                        } break;
+                        }
+                        break;
                     case 2:
-                        { 
+                        {
                             MostrarPromedio();
                         }; break;
                     case 3:
-                        { 
+                        {
                             MostrarAlumnosSuperaronPromedio();
                         }; break;
                     case 4:
@@ -193,6 +198,7 @@ namespace Ejercicio1
                         }; break;
                     default: op = 0; break;
                 }
+            }
 
         }
     }
